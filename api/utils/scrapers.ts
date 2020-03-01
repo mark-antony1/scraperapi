@@ -83,6 +83,14 @@ export const getItemDetail = async function(page: puppeteer.Page): Promise<ItemD
 				}			
 			})
 		}
+
+		const descriptionContainer = document.getElementsByClassName("table ml-1 pl-0")[0]
+		const descriptonBody = descriptionContainer && descriptionContainer.querySelectorAll("tbody")[0]
+		const descriptionTableRow = descriptonBody && descriptonBody.children[1]
+		const descriptionCell = descriptionTableRow && descriptionTableRow.querySelectorAll("td")[0]
+		if (!!descriptionCell) {
+			itemDetail.description = descriptionCell.innerHTML
+		}
 		return itemDetail
 	})
 }

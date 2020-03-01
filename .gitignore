@@ -1,0 +1,6 @@
+node_modules
+build
+generated
+docker-compose.yml
+prisma.yml
+.vscode/

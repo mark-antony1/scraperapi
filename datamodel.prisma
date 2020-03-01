@@ -1,0 +1,40 @@
+type User {
+  id: ID! @id
+  name: String!
+}
+
+type Website {
+	id: ID! @id
+  url: String! @unique
+	categories: [Category]!
+	updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}
+
+type Category {
+  id: ID! @id
+  name: String!
+	websiteCategoryId: String! @unique
+	linkToCategoryItems: String!
+	itemDetails: [ItemDetail]!
+	updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}
+
+type ItemDetail {
+  id: ID! @id
+	itemTitle: String
+	endTime: String
+	category: String
+	buyerPaysExtraPercent: String
+	websiteSpecificId: String @unique
+	startingBid: String
+	currentBid: String
+	nextAmountToBid: String
+	photos: [String] @scalarList(strategy: RELATION)
+	description: String
+	location: String
+	seller: String
+	updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}
